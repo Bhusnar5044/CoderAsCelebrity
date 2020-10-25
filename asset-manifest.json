@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/CoderAsCelebrity/static/css/main.84aedc90.chunk.css",
+    "main.js": "/CoderAsCelebrity/static/js/main.cffe96f8.chunk.js",
+    "main.js.map": "/CoderAsCelebrity/static/js/main.cffe96f8.chunk.js.map",
+    "runtime-main.js": "/CoderAsCelebrity/static/js/runtime-main.31a438d5.js",
+    "runtime-main.js.map": "/CoderAsCelebrity/static/js/runtime-main.31a438d5.js.map",
+    "static/js/2.61538e9e.chunk.js": "/CoderAsCelebrity/static/js/2.61538e9e.chunk.js",
+    "static/js/2.61538e9e.chunk.js.map": "/CoderAsCelebrity/static/js/2.61538e9e.chunk.js.map",
+    "static/js/3.0127d266.chunk.js": "/CoderAsCelebrity/static/js/3.0127d266.chunk.js",
+    "static/js/3.0127d266.chunk.js.map": "/CoderAsCelebrity/static/js/3.0127d266.chunk.js.map",
+    "index.html": "/CoderAsCelebrity/index.html",
+    "static/css/main.84aedc90.chunk.css.map": "/CoderAsCelebrity/static/css/main.84aedc90.chunk.css.map",
+    "static/js/2.61538e9e.chunk.js.LICENSE.txt": "/CoderAsCelebrity/static/js/2.61538e9e.chunk.js.LICENSE.txt",
+    "static/media/404.09d820e4.jpg": "/CoderAsCelebrity/static/media/404.09d820e4.jpg",
+    "static/media/Logo.692369dc.jpg": "/CoderAsCelebrity/static/media/Logo.692369dc.jpg",
+    "static/media/logo.103b5fa1.svg": "/CoderAsCelebrity/static/media/logo.103b5fa1.svg",
+    "static/media/user.eb28a9d0.png": "/CoderAsCelebrity/static/media/user.eb28a9d0.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.31a438d5.js",
+    "static/js/2.61538e9e.chunk.js",
+    "static/css/main.84aedc90.chunk.css",
+    "static/js/main.cffe96f8.chunk.js"
+  ]
+}
