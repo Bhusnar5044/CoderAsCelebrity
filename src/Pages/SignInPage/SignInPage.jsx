@@ -1,173 +1,236 @@
-import React, { useState } from "react";
-import Style from "./SignInPage.module.scss";
-import Pic from "../../Assets/Images/food.jpg";
-import Footer from "../../Components/Footer/Footer";
-import { Link } from "react-router-dom";
-// import { auth, signInWithGoogle } from "../../Firebase/Firebase.utils";
+import React, { useState, useEffect } from "react";
+import "./SignInPage.scss";
 import swal from "sweetalert";
+import PIC from "../../Assets/Images/user.png";
+// import {
+//   signInWithGoogle,
+//   auth,
+//   createUserProfileDocument,
+// } from "../../Firebase/firebase.utils";
 // import Swal from "@sweetalert/with-react";
+import { useHistory } from "react-router-dom";
 
-function SignInPage() {
-  const [email, setEmail] = useState("");
+const SignInPage = () => {
   const [password, setPassword] = useState("");
-  const [resetEmail, setResetEmail] = useState("");
-  let handleSignIn = async e => {
+  const [email, setEmail] = useState("");
+  const [signup_password, set_signup_password] = useState("");
+  const [signup_username, set_signup_username] = useState("");
+  const [signup_email, set_signup_email] = useState("");
+  const history = useHistory();
+  let SignUpbtn = () => {
+    let x = document.getElementById("SignIn");
+    let y = document.getElementById("SignUp");
+    let z = document.getElementById("btn");
+    x.style.left = "-400px";
+    y.style.left = "50px";
+    z.style.left = "130px";
+  };
+  let SignInbtn = () => {
+    let x = document.getElementById("SignIn");
+    let y = document.getElementById("SignUp");
+    let z = document.getElementById("btn");
+    x.style.left = "50px";
+    y.style.left = "450px";
+    z.style.left = "0px";
+  };
+  let reDirectToHome = () => {
+    history.push("/");
+  };
+
+  let handleSignUp = async (e) => {
+    e.preventDefault();
+    // try {
+    //   const { user } = await auth.createUserWithEmailAndPassword(
+    //     signup_email,
+    //     signup_password
+    //   );
+    //   await createUserProfileDocument(user, { signup_username });
+
+    //   reDirectToHome();
+    //   Swal(
+    //     <div
+    //       style={{
+    //         backgroundImage: `url(${PIC})`,
+    //         backgroundSize: "100% 100%",
+    //       }}
+    //     >
+    //       <h2>
+    //         WElCOME <h1>{signup_username.toUpperCase()}</h1>
+    //       </h2>
+    //       <p>Now you can acces all features</p>
+    //     </div>
+    //   );
+    //   set_signup_password("");
+    //   set_signup_email("");
+
+    //   set_signup_username("");
+    // } catch (err) {
+    //   alert("something went wrong" + err.message);
+    // }
+  };
+  let handleSignIn = async (e) => {
     e.preventDefault();
     // try {
     //   await auth.signInWithEmailAndPassword(email, password);
-
-    //   swal({
-    //     title: `  WElC😍ME ${email}!`,
-    //     text: "You can now Purchase any Food!",
-    //     icon: "success",
-    //     button: "Aww yiss!",
-    //   });
-    //   setPassword("");
-    //   setEmail("");
-    // } catch (err) {
-    //   console.log(err.message);
-    //   swal({
-    //     title: `Please check Your Inputs😠!`,
-    //     text: "Either Email or Password is Wrong",
-    //     icon: "warning",
-    //     button: "OK!",
-    //   });
-    // }
-  };
-  let handleGoogleSignIn = e => {
-    // signInWithGoogle();
-    // swal({
-    //   title: `  WElC😍ME !`,
-    //   text: "You can now Purchase any Food!",
-    //   icon: "success",
-    //   button: "Aww yiss!",
-    // });
-  };
-  let handleUserResponse = e => {
-    e.preventDefault();
-    // auth
-    //   .sendPasswordResetEmail(resetEmail)
-    //   .then(() => {
-    //     swal("Password Link Sent!", "Please check your E-Mail!", "success");
-    //   })
-    //   .catch(err => {
-    //     alert(err.message + err.code);
-    //   });
-    // Swal.close();
-  };
-
-  const handleForgotPassword = e => {
-    // Swal({
-    //   // text: "Please Enter Your Valid E-mail Address",
-    //   buttons: {
-    //     cancel: "Close",
-    //   },
-    //   content: (
-    //     <div>
-    //       <h4>Please Enter Your Valid E-Mail Address</h4>
-    //       <form onSubmit={handleUserResponse}>
-    //         <input
-    //           onChange={e => setResetEmail(e.target.value)}
-    //           type="email"
-    //           name=""
-    //           id=""
-    //           // value={resetEmail}
-    //           required
-    //           placeholder="E-Mail"
-    //         />
-    //         <button className={Style.modalButton} type="submit">
-    //           Reset Password
-    //         </button>
-    //       </form>
+    //   reDirectToHome();
+    //   Swal(
+    //     <div
+    //       style={{
+    //         backgroundImage: `url(${PIC})`,
+    //         backgroundSize: "100% 100%",
+    //       }}
+    //     >
+    //       <h2>
+    //         WElC😍ME <h3>{email}</h3>
+    //       </h2>
+    //       <p>Now you can acces all features</p>
     //     </div>
-    //   ),
-    // });
+    //   );
+    //   setEmail("");
+    //   setPassword("");
+    // } catch (err) {
+    //   Swal(
+    //     <div>
+    //       <h4>
+    //         <i class="fas fa-user-lock"></i> Please check your Enteries
+    //         <i class="fas fa-key"></i>
+    //       </h4>
+    //       <h6 style={{ color: "#ff6b6b" }}>
+    //         Either{" "}
+    //         <b>
+    //           <u>Email</u>
+    //         </b>{" "}
+    //         or{" "}
+    //         <b>
+    //           <u>Password</u>{" "}
+    //         </b>{" "}
+    //         is Wrong
+    //       </h6>
+    //     </div>
+    //   );
+    // }
   };
 
   return (
-    <div className={Style.main_container}>
-      <div className={Style.sub_container}>
-        <div className={Style.branding}>
+    <div className="mainContainer">
+      <div className="formContainer">
+        <div className="buttonBox">
+          <div id="btn"></div>
+          <button onClick={SignInbtn} className="toggle_btn">
+            Sign In
+          </button>
+          <button onClick={SignUpbtn} className="toggle_btn">
+            Sign Up
+          </button>
+        </div>
+        <form id="SignIn" onSubmit={handleSignIn}>
+          <input
+            className="input"
+            type="email"
+            name="useremail"
+            id="useremail"
+            placeholder="Enter em@il Id "
+            required
+            value={email}
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
+          <input
+            className="input"
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Enter Password"
+            required
+            value={password}
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
+          />
+          <div className="handle">
+            <input
+              className="inputcheck"
+              type="checkbox"
+              name="remember-password"
+              id="remember-password"
+            />
+            &nbsp; <span style={{ fontSize: "13px" }}>Remember Password</span>{" "}
+          </div>
+          <button className="buttonss" type="submit">
+            Login
+          </button>
           <div
-            className={Style.showCase}
-            style={{ backgroundImage: `url(${Pic})` }}
+            style={{
+              margin: "auto",
+            }}
+            className='or'
           >
-            <h2 className={Style.brand}>
-              _Food<b>4</b>Foodie_
-            </h2>
-            <h4 className={Style.moto}>Always on Time</h4>
+            or{" "}
           </div>
-        </div>
-        <div className={Style.signInForm}>
-          <div className={Style.handleForm}>
-            <h2 className={Style.Login}>Login</h2>
-            <form action="" onSubmit={handleSignIn}>
-              <div>
-                <input
-                  type="email"
-                  name=""
-                  id=""
-                  value={email}
-                  onChange={e => setEmail(e.target.value)}
-                  required
-                  placeholder="E-Mail"
-                />
-              </div>
-              <div>
-                <input
-                  type="password"
-                  name=""
-                  id=""
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                  required
-                  placeholder="Password"
-                />
-              </div>
-              <div className={Style.handlecheckbox}>
-                <div className={Style.checkbokstyling}>
-                  <input type="checkbox" name="" id="" />
-                  <span> Remember&nbsp;Me</span>
-                </div>
-                <div>
-                  <span
-                    onClick={handleForgotPassword}
-                    className={Style.fogotPassword}
-                  >
-                    Forgot Password?
-                  </span>
-                </div>
-              </div>
-              <div className={Style.buttons}>
-                <button className={Style.button1} type="submit">
-                  SignIn
-                </button>
-                <button
-                  className={Style.button2}
-                  type="button"
-                  onClick={handleGoogleSignIn}
-                >
-                  Google
-                </button>
-              </div>
-            </form>
-            <div className={Style.else}>
-              ----------------------<b>OR</b>----------------------
-            </div>
-            <div className={Style.option}>
-              Don't Have An Account?
-              <span className={Style.routeToSignUp}>
-                <Link style={{ color: "blue" }} to="/signUp">
-                  Sign Up
-                </Link>
-              </span>
-            </div>
+          <button onClick='' className="googlebtn ">
+            Google{" "}
+            <i
+              style={{ padding: "2px 3px",fontSize:"20px" }}
+              class="fab fa-google-plus-square"
+            ></i>
+          </button>
+        </form>
+        <form id="SignUp" onSubmit={handleSignUp}>
+          <input
+            className="input"
+            type="email"
+            name="useremail"
+            id="signup_email"
+            placeholder=" Enter em@il  Id"
+            required
+            value={signup_email}
+            onChange={(e) => {
+              set_signup_email(e.target.value);
+            }}
+          />
+          <input
+            className="input"
+            type="text"
+            name="signup_username"
+            id="signup_username"
+            placeholder="Enter UserName"
+            required
+            value={signup_username}
+            onChange={(e) => {
+              set_signup_username(e.target.value);
+            }}
+          />
+          <input
+            className="input"
+            type="password"
+            name="signup-password"
+            id="signup_password"
+            placeholder="Enter Password"
+            required
+            value={signup_password}
+            onChange={(e) => {
+              set_signup_password(e.target.value);
+              console.log(signup_password);
+            }}
+          />
+          <div className="handle">
+            <input
+              className="inputcheck"
+              type="checkbox"
+              name="remember-password"
+              id="remember-password"
+              required
+            />
+            <span className="span">I agree to the terms and condition</span>{" "}
           </div>
-        </div>
+          <button className="buttonss" type="submit">
+            SignUp
+          </button>
+        </form>
       </div>
-      <Footer />
     </div>
   );
-}
+};
 
 export default SignInPage;
